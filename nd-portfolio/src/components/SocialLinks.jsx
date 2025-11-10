@@ -4,7 +4,7 @@ const SocialLinks = () => {
   const socialLinks = [
     { name: 'GitHub', url: 'https://github.com/LyricalLemon' },
     { name: 'LinkedIn', url: 'https://linkedin.com/in/noahdias19' },
-    { name: 'Twitter', url: 'https://twitter.com/yourusername' }
+    { name: 'Discord', url: 'https://discord.com/users/lyricallemon' }
   ];
 
   return (
