@@ -1,10 +1,16 @@
+import { useState } from 'react'
 import './App.css'
 import SocialLinks from './components/SocialLinks'
 import ProjectCard from './components/ProjectCard'
+import CodeRain from './components/codeRain'
+import Contact from './components/Contact'
 import starlightLogo from './assets/STARLIGHT_logo.jpg'
-import SlottyLogo from './assets/Slotty_DemoImg.jpeg'
+import SlottyLogo from './assets/Slotty_DemoImg.jpg'
+import TurtleRaceLogo from './assets/TurtleRace_Demo.PNG'
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('home');
+
   const LargeProjects = [
     {
       title: "StarLight",
@@ -23,38 +29,73 @@ function App() {
     {
       title: "TurtleRacer",
       description: "Fun little game created using Python's Turtle module allowing users to see turtles racing against each other.",
-      image: SlottyLogo,
+      image: TurtleRaceLogo,
       githubLink: "https://github.com/LyricalLemon/PyGames"
-    },];
-  return (
-    <div className="container">
-      <header>
-        <h1>Noah Dias</h1>
-        <SocialLinks />
-      </header>
+    },
+    {
+      title: "TurtleRacer",
+      description: "Fun little game created using Python's Turtle module allowing users to see turtles racing against each other.",
+      image: TurtleRaceLogo,
+      githubLink: "https://github.com/LyricalLemon/PyGames"
+    },
+    {
+      title: "TurtleRacer",
+      description: "Fun little game created using Python's Turtle module allowing users to see turtles racing against each other.",
+      image: TurtleRaceLogo,
+      githubLink: "https://github.com/LyricalLemon/PyGames"
+    },
+  ];
 
-      <main>
-        <section className="Large Projects">
-          <h2>Large Projects:</h2>
-        </section>
-        <section className="projects">
-          <div className="projects-grid">
-            {LargeProjects.map((project, index) => (
-              <ProjectCard key={index} {...project} />
-            ))}
-          </div>
-        </section>
-        <section className="Small Projects">
-          <h2>Small Projects:</h2>
-          <section className="projects">
-          {SmallProjects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
-          ))}
-        </section>
-        </section>
-      </main>
-    </div>
-  )
+  return (
+    <>
+      <div className="codeRain-background">
+        <CodeRain />
+      </div>
+
+      {currentPage === 'home' ? (
+        <div className="container">
+          <header>
+            <h1>Noah Dias</h1>
+            <SocialLinks />
+          </header>
+
+          <div className="separator"></div>
+
+          <main>
+            <section className="Large Projects">
+              <h2>LARGE PROJECTS</h2>
+              <div className="projects-grid">
+                {LargeProjects.map((project, index) => (
+                  <ProjectCard key={index} {...project} />
+                ))}
+              </div>
+            </section>
+
+            <section className="Small Projects">
+              <h2>SMALL PROJECTS</h2>
+              <section className="projects-grid">
+                {SmallProjects.map((project, index) => (
+                  <ProjectCard key={index} {...project} />
+                ))}
+              </section>
+            </section>
+          </main>
+
+          <footer>
+            <p>&copy; Noah Dias 2025 All Rights Reserved</p>
+            <button className="contact-btn" onClick={() => setCurrentPage('contact')}>
+              Contact Me
+            </button>
+          </footer>
+        </div>
+      ) : (
+        <div className="container">
+          <button className="back-btn" onClick={() => setCurrentPage('home')}>← Back</button>
+          <Contact />
+        </div>
+      )}
+    </>
+  );
 }
 
 export default App

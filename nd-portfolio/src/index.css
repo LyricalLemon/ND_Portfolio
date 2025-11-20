@@ -1,5 +1,6 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+
   line-height: 1.5;
   font-weight: 400;
 
@@ -72,6 +73,29 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+.separator {
+  height: 2px;
+  background-color: rgb(255, 119, 0);
+}
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid rgb(255, 119, 0);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (prefers-color-scheme: light) {
+  footer {
+    color: rgba(0, 0, 0, 0.7);
   }
 }
 
@@ -171,4 +195,89 @@ header {
   border-radius: 4px;
   margin-top: 1rem;
   flex-shrink: 0;
+}
+
+.contact-btn, .back-btn {
+  background-color: rgb(255, 119, 0);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.contact-btn:hover, .back-btn:hover {
+  background-color: rgb(255, 100, 0);
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.contact-card h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.contact-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-card input,
+.contact-card textarea {
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 119, 0, 0.3);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.87);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.contact-card input::placeholder,
+.contact-card textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-card button {
+  background-color: rgb(255, 119, 0);
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.contact-card button:hover {
+  background-color: rgb(255, 100, 0);
+}
+
+.success-message {
+  color: #4ade80;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  color: #f87171;
+  text-align: center;
+  margin-bottom: 1rem;
 }
